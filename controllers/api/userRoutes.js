@@ -15,8 +15,9 @@ router.get("/", async (req, res) => {
 
   try {
     const user = await User.find()
-    .populate('thoughts');
-    
+    .populate('thoughts')
+    .populate('friends');
+
     res.status(200).json(user);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -52,6 +53,35 @@ router.post("/", async (req, res) => {
     console.error(err.message);
   }
 });
+
+//GIVE USER NEW FRIEND
+router.post('/:userId/friends/:friendId', async(req,res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    const friend = await User.findById(req.params.friendId);
+    user.friends.push(friend);
+    await user.save();
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+    console.error(err.message);
+  }
+});
+
+// DELETE USER FRIEND
+router.delete('/:userId/friends/:friendId', async(req,res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    const friend = await User.findById(req.params.friendId);
+    user.friends.pull(friend);
+    await user.save();
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+    console.error(err.message);
+  }
+});
+
 
 // UPDATE USER BY ID
 router.put('/:id', async (req, res) => {

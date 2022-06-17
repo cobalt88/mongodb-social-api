@@ -31,13 +31,9 @@ router.post("/", async(req, res) => {
         { 
           thoughts: thoughtId
         } 
-      
       },
     );
-
     res.status(200).json(newThought);
-
-   
   } catch (err) {
     res.status(500).json({ message: err.message });
     console.error(err.message);
