@@ -2,21 +2,30 @@ const User = require('../../models/User');
 const Thought = require('../../models/thoughts');
 const router = require('express').Router();
 
+
+/*
+================================================
+           USER ROUTES | /api/user
+================================================
+*/
+
+
 //GET ALL USERS
-router.get("/", async(req, res) => {
-  
-  try{
-    const user = await User.find();
-    console.log(user);
+router.get("/", async (req, res) => {
+
+  try {
+    const user = await User.find()
+    .populate('thoughts');
+    
     res.status(200).json(user);
-  }catch(err){
-    res.status(500).json({message: err.message});
+  } catch (err) {
+    res.status(500).json({ message: err.message });
     console.error(err.message);
   }
 });
 
 //GET USER BY ID
-router.get('/:id', async(req, res) => {
+router.get('/:id', async (req, res) => {
   try {
 
     const user = await User
@@ -26,40 +35,48 @@ router.get('/:id', async(req, res) => {
 
     res.status(200).json(user);
   } catch (err) {
-    res.status(500).json({message: err.message});
+    res.status(500).json({ message: err.message });
     console.error(err.message);
-    
+
   }
 })
 
 //CREATE NEW USER
-router.post("/", async(req, res) => {
-  try{
+router.post("/", async (req, res) => {
+  try {
     console.log(req.body);
-    const newUser = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-
-    });
+    const newUser = await User.create(req.body);
     res.status(200).json(newUser);
-  }catch(err){
-    res.status(500).json({message: err.message});
+  } catch (err) {
+    res.status(500).json({ message: err.message });
     console.error(err.message);
   }
 });
 
 // UPDATE USER BY ID
-router.put('/:id', async(req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
-    })
-    
+    });
+    res.status(200).json(user);
   } catch (err) {
-    res.status(500).json({message: err.message});
-    console.error(err.message);  }
+    res.status(500).json({ message: err.message });
+    console.error(err.message);
+  }
 })
+
+// DELETE USER BY ID
+router.delete('/:id', async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+    console.error(err.message);
+  }
+});
 
 
 

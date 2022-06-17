@@ -35,6 +35,10 @@ const thoughtSchema = new mongoose.Schema(
       min: 1,
       max: 255,
     },
+    username: {
+      type: String,
+      required: true,
+    },
     createdAt: {
       immutable: true,
       type: Date,

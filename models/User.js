@@ -16,14 +16,15 @@ const userSchema = new mongoose.Schema({
       validator: function (v) {
         return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(v);
       },
-      message: props => `${props.value} invalid email address`,
+      message: (props) => `${props.value} invalid email address`,
     },
   },
-
-  thoughts: {
-    type: mongoose.SchemaTypes.ObjectId,
-    ref: "Thought",
-  },
+  thoughts: [
+    {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "Thought",
+    },
+  ],
   friends: [
     {
       type: mongoose.SchemaTypes.ObjectId,
