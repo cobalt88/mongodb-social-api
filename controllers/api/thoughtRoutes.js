@@ -40,21 +40,39 @@ router.post("/", async(req, res) => {
   }
 });
 
-// CREATE NEW REACTION TO A POST
-router.post('/:thoughtId/reactions', async(req,res) => {
+// CREATE NEW REACTION
+router.post('/thought:id/reaction', async(req, res) => {
   try {
-    const thought = await Thought.findById(req.params.thoughtId);
-    const reaction = await Reaction.create(req.body);
-    const userId = req.body.userId;
-    const user = await User.findOneAndUpdate(
-      {_id: userId},
-      { $push:
-        {
-          reactions: reaction
-        }
+    const thoughtId = req.params.id;
+    const newReaction = await Thought.findOneAndUpdate(
+      {_id: thoughtId},
+      { $push: 
+        { 
+          reactions: req.body
+        } 
       },
     );
-    res.status(200).json(thought);
+    res.status(200).json(newReaction);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+    console.error(err.message);
+  }
+});
+
+//DELETE REACTION
+router.delete('/thought:id/reaction:id', async(req, res) => {
+  try {
+    const thoughtId = req.params.id;
+    const reactionId = req.params.id;
+    const deletedReaction = await Thought.findOneAndUpdate(
+      {_id: thoughtId},
+      { $pull: 
+        { 
+          reactions: {_id: reactionId}
+        } 
+      },
+    );
+    res.status(200).json(deletedReaction);
   } catch (err) {
     res.status(500).json({ message: err.message });
     console.error(err.message);
