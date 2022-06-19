@@ -40,6 +40,27 @@ router.post("/", async(req, res) => {
   }
 });
 
+// CREATE NEW REACTION TO A POST
+router.post('/:thoughtId/reactions', async(req,res) => {
+  try {
+    const thought = await Thought.findById(req.params.thoughtId);
+    const reaction = await Reaction.create(req.body);
+    const userId = req.body.userId;
+    const user = await User.findOneAndUpdate(
+      {_id: userId},
+      { $push:
+        {
+          reactions: reaction
+        }
+      },
+    );
+    res.status(200).json(thought);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+    console.error(err.message);
+  }
+});
+
 // UPDATE THOUGHT BY ID
 router.put('/:id', async (req, res) => {
   try {
