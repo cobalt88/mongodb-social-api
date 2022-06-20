@@ -13,6 +13,8 @@ This document details all the complete and tested routes available in the contro
 
 ## User Routes
 
+
+
 ## Friends Routes 
 **(nested in users)**
 
