@@ -19,13 +19,24 @@ router.get("/", async(req, res) => {
   }
 });
 
+//GET THOUGHT BY ID
+router.get('/:id', async (req, res) => {
+  try {
+    const thought = await Thought.findById(req.params.id);
+    res.status(200).json(thought);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+    console.error(err.message);
+  }
+});
+
 // CREATE NEW THOUGHT
 router.post("/", async(req, res) => {
   try {
     const newThought = await Thought.create(req.body);
     const thoughtId = newThought._id;
     const userId = req.body.userId;
-    const user = await User.findOneAndUpdate(
+    await User.findOneAndUpdate(
       {_id: userId},
       { $push: 
         { 
@@ -41,7 +52,7 @@ router.post("/", async(req, res) => {
 });
 
 // CREATE NEW REACTION
-router.post('/thought:id/reaction', async(req, res) => {
+router.post('/:id/reaction', async(req, res) => {
   try {
     const thoughtId = req.params.id;
     const newReaction = await Thought.findOneAndUpdate(
