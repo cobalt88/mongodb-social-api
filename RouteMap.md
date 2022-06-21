@@ -231,13 +231,24 @@ This document details all the complete and tested routes available in the contro
     ```
 
 * **DELETE Route Map Template:** </br>
-    Request Requirements: "" </br>
-    Expected Response: "" </br> 
+    Request Requirements: thought id in the url and a json body with the ID of the reaction to be deleted. </br>
+    Expected Response: "message": "Reaction Deleted" or error message. </br> 
     Method: DELETE <br>
-    URL: "" </br>
-    Example: "" </br>
+    URL: /api/thoughts/reaction/:thoughtId </br>
+    Example URL: /api/thoughts/reaction/62b131a7143e2aa4db8666b4/ </br>
+    Example Request Body: </br>
+    ```
+    {
+	    "reactionId": "62b239bc589b0a3190416cc3"
+    }
+    ```
+    Example Response Body: </br>
+    ```
+    {
+	    "message": "Reaction deleted"
+    }
+    ```
 
-**(nested in thought routes)**
 
 ## Models Information
 

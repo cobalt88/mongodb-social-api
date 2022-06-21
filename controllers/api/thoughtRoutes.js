@@ -98,7 +98,7 @@ router.post('/:id/reaction', async(req, res) => {
 });
 
 //DELETE REACTION
-router.delete('/reaction/:thoughtId/', async(req, res) => {
+router.delete('/reaction/:thoughtId', async(req, res) => {
   
   try {
     console.log(`made it here`)
@@ -119,7 +119,6 @@ router.delete('/reaction/:thoughtId/', async(req, res) => {
     console.error(err.message);
   }
 });
-
 
 
 module.exports = router;
