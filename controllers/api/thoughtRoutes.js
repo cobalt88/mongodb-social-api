@@ -51,44 +51,6 @@ router.post("/", async(req, res) => {
   }
 });
 
-// CREATE NEW REACTION
-router.post('/:id/reaction', async(req, res) => {
-  try {
-    const thoughtId = req.params.id;
-    const newReaction = await Thought.findOneAndUpdate(
-      {_id: thoughtId},
-      { $push: 
-        { 
-          reactions: req.body
-        } 
-      },
-    );
-    res.status(200).json(newReaction);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-    console.error(err.message);
-  }
-});
-
-//DELETE REACTION
-router.delete('/thought:id/reaction:id', async(req, res) => {
-  try {
-    const thoughtId = req.params.id;
-    const reactionId = req.params.id;
-    const deletedReaction = await Thought.findOneAndUpdate(
-      {_id: thoughtId},
-      { $pull: 
-        { 
-          reactions: {_id: reactionId}
-        } 
-      },
-    );
-    res.status(200).json(deletedReaction);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-    console.error(err.message);
-  }
-});
 
 // UPDATE THOUGHT BY ID
 router.put('/:id', async (req, res) => {
@@ -109,6 +71,49 @@ router.delete('/:id', async (req, res) => {
   try {
     const thought = await Thought.findByIdAndDelete(req.params.id);
     res.status(200).json(thought);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+    console.error(err.message);
+  }
+});
+
+
+// CREATE NEW REACTION
+router.post('/:id/reaction', async(req, res) => {
+  try {
+    const thoughtId = req.params.id;
+    const newReaction = await Thought.findOneAndUpdate(
+      {_id: thoughtId},
+      { $push: 
+        { 
+          reactions: req.body
+        } 
+      },
+    );
+    res.status(200).json(newReaction);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+    console.error(err.message);
+  }
+});
+
+//DELETE REACTION
+router.delete('/reaction/:thoughtId/', async(req, res) => {
+  
+  try {
+    console.log(`made it here`)
+    const thoughtId = req.params.thoughtId;
+    const reactionId = req.body.reactionId;
+    await Thought.findOneAndUpdate(
+      { _id: thoughtId },
+      { $pull: 
+        { reactions: 
+          { _id: reactionId } 
+        } 
+      },
+      { new: true }
+    );
+    res.status(200).json({message: "Reaction deleted"});
   } catch (err) {
     res.status(500).json({ message: err.message });
     console.error(err.message);
