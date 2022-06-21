@@ -194,26 +194,41 @@ This document details all the complete and tested routes available in the contro
 
 ## Reaction Routes 
 
-* **GET Route Map Template:** </br>
-    Request Requirements: "" </br>
-    Expected Response: "" </br>
-    Method: GET <br>
-    URL: "" </br>
-    Example: "" </br>
-
-* **POST Route Map Template:** </br>
-    Request Requirements: "" </br>
-    Expected Response: "" </br>
+* **POST New Reaction:** </br>
+    Request Requirements: Thought ID in URL and Json body included with request </br>
+    Expected Response: Newly created response </br>
     Method: POST <br>
-    URL: "" </br>
-    Example: "" </br>
+    URL: /api/thoughts/:thoughtID/reaction </br>
+    Example Request URL: /api/thoughts/62acf7a6c2c222ebf0bd65c0/reaction </br>
+    Example Request Body: </br>
+    ```
+    {
+        "reactionBody": "Here's a cool thought...",
+        "username": "Jack"
+    }
+    ```
 
-* **PUT Route Map Template:** </br>
-    Request Requirements:  </br>
-    Expected Response: "" </br>
-    Method: PUT <br>
-    URL: "" </br>
-    Example: "" </br>
+    Example Response Body: </br>
+    ```
+        {
+	        "_id": "62acf7a6c2c222ebf0bd65c0",
+	        "thoughtText": "New Test Thought, should be assigned to Bobby",
+	        "username": "Bobby",
+	        "createdAt": "2022-06-17T21:52:38.525Z",
+	        "updatedAt": "2022-06-17T21:52:38.525Z",
+	        "reactions": [
+	        	{
+	        		"reactionBody": "Here's a cool thought...",
+	        		"username": "Jack",
+	        		"createdAt": "2022-06-21T01:59:00.312Z",
+	        		"_id": "62b125e52d3db8f0e92a10b9",
+	        		"reactionId": "62b125e52d3db8f0e92a10ba",
+	        		"updatedAt": "2022-06-21T01:59:35.416Z"
+	        	}
+	        ],
+	        "__v": 0
+        }
+    ```
 
 * **DELETE Route Map Template:** </br>
     Request Requirements: "" </br>
