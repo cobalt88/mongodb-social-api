@@ -40,9 +40,9 @@ There is a full route map in the docs folder inside of this repository however, 
 
 In the event that you are using Insomnia for testing your routes there is JSON file in the docs folder that has a pre-configured work environment with test routes and sample data already set up to help get you started. 
 
-- [Insomnia](https://insomnia.rest/)
+- [Insomnia Download](https://insomnia.rest/)
 
-- [Insomnia Setup](./docs/Insomnia_setup_2022-06-21)
+- [Insomnia Setup File](./docs/Insomnia_setup_2022-06-21)
 
 - [Demo Video](https://youtu.be/onwfY04Vqig)
 
