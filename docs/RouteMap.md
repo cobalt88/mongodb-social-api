@@ -275,7 +275,7 @@ This document details all the complete and tested routes available in the contro
 
 ## About The Author
 
-This document was autored by Vincent Teune,
-GitHub Profile: https://github.com/cobalt88
-GitHub Gists: https://gist.github.com/cobalt88
-Email: vincent@vtportfolio.net
+This document was autored by Vincent Teune, </br>
+GitHub Profile: https://github.com/cobalt88 </br>
+GitHub Gists: https://gist.github.com/cobalt88 </br>
+Email: vincent@vtportfolio.net </br>
