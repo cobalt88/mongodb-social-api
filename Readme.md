@@ -24,8 +24,9 @@
  
   This particular API will require the installation of MongoDB, community edition was used for development, or it can alternatively be connected to MongoDB's Atlas service, and NodeJS. </br>
 
-  <a href="https://www.mongodb.com/">MongoDB</a> </br>
-  <a href="https://nodejs.org/en/">NodeJS</a> </br>
+  - <a href="https://www.mongodb.com/">MongoDB</a> </br>
+
+  - <a href="https://nodejs.org/en/">NodeJS</a> </br>
 
   Once Mongo is up and running open the root folder of the local instance and run `npm i` to install the relevant dependencies, Nodemon is recommended but definitely not required. </br>
   Once everything is done installing run `node server` or `nodemon server` depending on wether or not you installed nodemon.
@@ -37,21 +38,31 @@
 
 There is a full route map in the docs folder inside of this repository but here is an example of how to create your first user, which will be needed before any of the other CRUD operations will work. 
 
-* **POST Create New User:** </br>
+In the event that you are using Insomnia for testing your routes there is JSON file in the docs folder that has a pre-configured work environment with test routes and sample data already set up to help get you started. 
+
+- [Insomnia](https://insomnia.rest/)
+
+- [Insomnia Setup](./docs/Insomnia_setup_2022-06-21)
+
+
+
+**POST Create New User:** </br>
     Request Requirements: json body with following example format: </br>
-    ``` 
+    
+    ```
     {
 	    "username": "Sally",
 	    "email": "sally@test.com",
 	    "thoughts": [],
 	    "friends": []
     }
-
     ```
+
     Expected Response: User object in json format.  </br>
     Method: POST <br>
     URL: /api/user </br>
     Example Response: </br>
+
     ```
     {
 	    "username": "Sally",
