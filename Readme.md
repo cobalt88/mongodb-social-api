@@ -44,7 +44,7 @@ In the event that you are using Insomnia for testing your routes there is JSON f
 
 - [Insomnia Setup](./docs/Insomnia_setup_2022-06-21)
 
-- [Demo Video](https://youtu.be/IGNPUaspzac)
+- [Demo Video](https://youtu.be/onwfY04Vqig)
 
 -  Full route documentation can be found here: [Route Map](./docs/RouteMap.md)
 
