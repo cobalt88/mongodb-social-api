@@ -252,6 +252,30 @@ This document details all the complete and tested routes available in the contro
 
 ## Models Information
 
+- User
+
+    - Username
+    - Email
+    - Thoughts
+    - Friends
+
+- Thoughts
+
+    - Thought Text
+    - Username
+    - Reactions
+
+
 ## Server Information
 
+- **Type**: *NoSQL/MongoDB*
+- **Name**: *social-api*
+- **Dependencies**: *Express, Mongoose*
+- **Default Port**: *process.env.MONGODB_URL || 3001*
+
 ## About The Author
+
+This document was autored by Vincent Teune,
+GitHub Profile: https://github.com/cobalt88
+GitHub Gists: https://gist.github.com/cobalt88
+Email: vincent@vtportfolio.net
