@@ -36,7 +36,7 @@
 
  ## How To Use
 
-There is a full route map in the docs folder inside of this repository but here is an example of how to create your first user, which will be needed before any of the other CRUD operations will work. 
+There is a full route map in the docs folder inside of this repository however, below is an example of how to create your first user, which will be needed before any of the other CRUD operations will work. 
 
 In the event that you are using Insomnia for testing your routes there is JSON file in the docs folder that has a pre-configured work environment with test routes and sample data already set up to help get you started. 
 
@@ -44,8 +44,10 @@ In the event that you are using Insomnia for testing your routes there is JSON f
 
 - [Insomnia Setup](./docs/Insomnia_setup_2022-06-21)
 
+-  Full route documentation can be found here: [Route Map](./docs/RouteMap.md)
 
 
+---
 **POST Create New User:** </br>
 
   Request Requirements: json body with following example format: </br>
@@ -72,12 +74,12 @@ In the event that you are using Insomnia for testing your routes there is JSON f
 	      "updatedAt": "2022-06-20T22:11:10.679Z",
 	      "__v": 0
       }
-    
+---
  
  
  Once a user is created you will be able to use the remainder of the routes to GET POST PUT and DELETE users, thoughts, and reactions. Thoughts are basically posts, reactions are comments. 
 
- Full route documentation can be found here: [Route Map](./docs/RouteMap.md)
+
 
  ## Contribution Guidelines
 
@@ -109,7 +111,7 @@ const myFunction = async() => {
  ## Application Tests
  
 
-no tests conditions are currently active
+No test conditions are currently active and the package.json does not currently include any test packages or environments.
 
 ## license
   
