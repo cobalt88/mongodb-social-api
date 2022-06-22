@@ -47,34 +47,32 @@ In the event that you are using Insomnia for testing your routes there is JSON f
 
 
 **POST Create New User:** </br>
-    Request Requirements: json body with following example format: </br>
+
+  Request Requirements: json body with following example format: </br>
+
+      {
+	      "username": "Sally",
+	      "email": "sally@test.com",
+	      "thoughts": [],
+	      "friends": []
+      }
+
+  Expected Response: User object in json format.  </br>
+  Method: POST <br>
+  URL: /api/user </br>
+  Example Response: </br>
     
-    ```
-    {
-	    "username": "Sally",
-	    "email": "sally@test.com",
-	    "thoughts": [],
-	    "friends": []
-    }
-    ```
-
-    Expected Response: User object in json format.  </br>
-    Method: POST <br>
-    URL: /api/user </br>
-    Example Response: </br>
-
-    ```
-    {
-	    "username": "Sally",
-	    "email": "sally@test.com",
-	    "thoughts": [],
-	    "friends": [],
-	    "_id": "62b0f07ebdab2382da77760a",
-	    "createdAt": "2022-06-20T22:11:10.679Z",
-	    "updatedAt": "2022-06-20T22:11:10.679Z",
-	    "__v": 0
-    }
-    ```
+      {
+	      "username": "Sally",
+	      "email": "sally@test.com",
+	      "thoughts": [],
+	      "friends": [],
+	      "_id": "62b0f07ebdab2382da77760a",
+	      "createdAt": "2022-06-20T22:11:10.679Z",
+	      "updatedAt": "2022-06-20T22:11:10.679Z",
+	      "__v": 0
+      }
+    
  
  
  Once a user is created you will be able to use the remainder of the routes to GET POST PUT and DELETE users, thoughts, and reactions. Thoughts are basically posts, reactions are comments. 
