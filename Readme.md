@@ -42,9 +42,9 @@ In the event that you are using Insomnia for testing your routes there is JSON f
 
 - [Insomnia Download](https://insomnia.rest/)
 
-- [Insomnia Setup File](./docs/Insomnia_setup_2022-06-21)
+- [Insomnia Setup File](./docs/Insomnia_2022-06-22.json)
 
-- [Demo Video](https://youtu.be/onwfY04Vqig)
+- [Demo Video](https://youtu.be/AOmMNOn6FqU)
 
 -  Full route documentation can be found here: [Route Map](./docs/RouteMap.md)
 
