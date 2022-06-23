@@ -198,8 +198,8 @@ This document details all the complete and tested routes available in the contro
     Request Requirements: Thought ID in URL and Json body included with request </br>
     Expected Response: Newly created response </br>
     Method: POST <br>
-    URL: /api/thoughts/:thoughtID/reaction </br>
-    Example Request URL: /api/thoughts/62acf7a6c2c222ebf0bd65c0/reaction </br>
+    URL: /api/thoughts/reaction/:thoughtID/ </br>
+    Example Request URL: /api/thoughts/reaction/62acf7a6c2c222ebf0bd65c0/ </br>
     Example Request Body: </br>
     ```
     {
@@ -230,18 +230,13 @@ This document details all the complete and tested routes available in the contro
         }
     ```
 
-* **DELETE Route Map Template:** </br>
-    Request Requirements: thought id in the url and a json body with the ID of the reaction to be deleted. </br>
+* **DELETE Reaction:** </br>
+    Request Requirements: reactionId and thoughtId in the URL request. </br>
     Expected Response: "message": "Reaction Deleted" or error message. </br> 
     Method: DELETE <br>
-    URL: /api/thoughts/reaction/:thoughtId </br>
-    Example URL: /api/thoughts/reaction/62b131a7143e2aa4db8666b4/ </br>
-    Example Request Body: </br>
-    ```
-    {
-	    "reactionId": "62b239bc589b0a3190416cc3"
-    }
-    ```
+    URL: /api/thoughts/:thoughtId/:reactionId </br>
+    Example URL: /api/thoughts/62acf7a6c2c222ebf0bd65c0/62b125e52d3db8f0e92a10ba/ </br>
+    
     Example Response Body: </br>
     ```
     {

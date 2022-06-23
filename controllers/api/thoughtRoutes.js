@@ -79,9 +79,9 @@ router.delete('/:id', async (req, res) => {
 
 
 // CREATE NEW REACTION
-router.post('/:id/reaction', async(req, res) => {
+router.post('/reaction/:thoughtId', async(req, res) => {
   try {
-    const thoughtId = req.params.id;
+    const thoughtId = req.params.thoughtId;
     const newReaction = await Thought.findOneAndUpdate(
       {_id: thoughtId},
       { $push: 
@@ -98,12 +98,11 @@ router.post('/:id/reaction', async(req, res) => {
 });
 
 //DELETE REACTION
-router.delete('/reaction/:thoughtId', async(req, res) => {
+router.delete('/reaction/:thoughtId/:reactionId', async(req, res) => {
   
   try {
-    console.log(`made it here`)
     const thoughtId = req.params.thoughtId;
-    const reactionId = req.body.reactionId;
+    const reactionId = req.params.reactionId;
     await Thought.findOneAndUpdate(
       { _id: thoughtId },
       { $pull: 
